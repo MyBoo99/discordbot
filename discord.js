@@ -13,11 +13,11 @@ client.on('message', async message =>{
 
     const arg = message.content.slice(prefix.length).split(/ +/);
     const command = arg.shift().toLowerCase();
-	var coin = 'gmr-finance'
+	
     if(command === 'price'){
 		let getPrice = async () => {
 				let response = await axios.get(
-					"https://api.coingecko.com/api/v3/simple/price?ids=${coin}&vs_currencies=usd"
+					"https://api.coingecko.com/api/v3/simple/price?ids=gmr-finance&vs_currencies=usd"
 					);
 				let price = response.data
 				return price
@@ -28,7 +28,7 @@ client.on('message', async message =>{
 			console.log(text)
 			console.log(pricevalue);
 			message.reply(`\n *${text}*`);
-			message.reply(`\n *${pricevalue.coin.usd}* `);
+			message.reply(`\n *${pricevalue.gmr-finance.usd}* `);
 			
     }
 });
